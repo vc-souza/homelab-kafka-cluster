@@ -18,4 +18,4 @@ install: .env
 .PHONY: uninstall
 uninstall:
 	@docker compose down -v
-	@rm .env
+	@rm -f .env
