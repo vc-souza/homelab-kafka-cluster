@@ -1,8 +1,20 @@
 .PHONY: all
 all: run
 
-.env:
-	@cp .env.template .env
+config.json:
+	@cp config.json.template config.json
+
+.env: config.json
+	@./scripts/host/gen/gen_env.sh
+
+.PHONY: install
+install: .env
+
+.PHONY: uninstall
+uninstall:
+	@docker compose down -v || true
+	@rm -f config.json
+	@rm -f .env
 
 .PHONY: run
 run:
@@ -12,10 +24,6 @@ run:
 stop: 
 	@docker compose down
 
-.PHONY: install
-install: .env
-
-.PHONY: uninstall
-uninstall:
-	@docker compose down -v
-	@rm -f .env
+.PHONY: logs
+logs:
+	@docker compose logs -f

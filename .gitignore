@@ -24,4 +24,5 @@ hs_err_pid*
 replay_pid*
 
 # docker compose environment files
+config.json
 .env
