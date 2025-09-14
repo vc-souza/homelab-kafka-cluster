@@ -7,3 +7,4 @@ Tested on a host running [Debian 13](https://www.debian.org/releases/trixie/rele
 - [`docker engine`](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 - `make`
 - `git`
+- `jq`
